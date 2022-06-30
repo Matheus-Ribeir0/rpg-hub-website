@@ -75,6 +75,7 @@ window.onload = Clear()
     }
     function Clear(){
         sumD6 = 0
+        sumD4 = 0
         sumResult.innerHTM = 'null'
         document.getElementById("border-d6").style.display="none"
         document.getElementById("counter-d6").style.display="none"

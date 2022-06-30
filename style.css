@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 :root {
     --main-green: #34B27B;
@@ -14,22 +15,53 @@ body {
 
 #container{
     
-    height: 30em;
+    position: relative;
+    border: 1px solid red;
     width: 30em;
+    height: 30em;
     margin: 0 auto;
-    margin-top: 10em;
+    margin-top: 8em;
     color: aliceblue;
+    display: block;
+    justify-content: center;
+}
+#sum {
+    background-color: var(--second-background);
+    height: 120;
+    margin: 130px auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    display: table;
 }
 #content-box{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 150px;
     text-align: center;
-    margin: 170px auto;
     font-size: 120px;
+    color: var(--main-green);
 }
 
-
+#buttons{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 12em;
+}
+button {
+    background-color: var(--main-green);
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    margin: 10px 20px;
+}
+/* barra de dados */
 #dices-bar {
     margin: 0 auto;
-    margin-top: 12em;
     display: flex;
     padding: 15px 0;
     justify-content: center;
@@ -47,6 +79,7 @@ body {
     border: none;
 }
 
+/* contador de dados */
 .counter {
     color: var(--main-green);
 }
