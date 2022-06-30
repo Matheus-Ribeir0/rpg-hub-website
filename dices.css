@@ -1,0 +1,27 @@
+/* D6 */
+
+.roll-button.d6 {
+    border: 3px solid var(--main-green);
+    border-radius: 5px;
+    color: var(--main-green);
+    text-decoration: solid;
+    font-size: 30px;
+    transition:all 0.2s ease-in-out;
+    
+}
+
+.roll-button.d6:hover {
+    background-color: var(--main-green);
+    color: aliceblue;
+    box-shadow: #34B27B;
+    filter:drop-shadow(0.5px 0.5px 10px var(--main-green));
+}
+
+/* D4 */
+.roll-button.d4 img {
+    width: 70px;
+}
+
+.roll-button.d4 img:hover{
+    filter: drop-shadow(0.5px 0.5px 10px var(--main-green));
+}
