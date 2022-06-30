@@ -3,4 +3,76 @@
     margin: 0;
     box-sizing: border-box;
 }
+:root {
+    --main-green: #34B27B;
+    --background: #1C1C1C;
+    --second-background: #2E2E2E;
+}
+body {
+    background-color: var(--background);
+}
 
+#container{
+    
+    height: 30em;
+    width: 30em;
+    margin: 0 auto;
+    margin-top: 10em;
+    color: aliceblue;
+}
+#content-box{
+    text-align: center;
+    margin: 170px auto;
+    font-size: 120px;
+}
+
+
+#dices-bar {
+    margin: 0 auto;
+    margin-top: 12em;
+    display: flex;
+    padding: 15px 0;
+    justify-content: center;
+    width: 60%;
+    height: 100px;
+    background-color: var(--second-background);
+    border-radius: 30px;
+}
+
+.roll-button {
+    width: 65px;
+    height: 65px;
+    
+    background-color: transparent;
+    border: none;
+}
+
+.roll-button.d6 {
+    border: 3px solid var(--main-green);
+    border-radius: 5px;
+    color: var(--main-green);
+    text-decoration: solid;
+    font-size: 30px;
+    transition:all 0.2s ease-in-out;
+    
+}
+
+.roll-button.d6:hover {
+    background-color: var(--main-green);
+    color: aliceblue;
+    box-shadow: #34B27B;
+    filter:drop-shadow(0.5px 0.5px 10px var(--main-green));
+}
+
+p {
+    color: rgb(255, 255, 255);
+}
+#border {  
+    display: none;
+    margin-left: 45px;
+    height: 25px;
+    width: 25px;
+    background-color: var(--background);
+    border:1px solid var(--main-green);
+    border-radius: 100%;
+}
