@@ -1,10 +1,12 @@
 let contentBox = document.getElementById("content-box")
 let sumResult = document.getElementById("sum")
+let cal = document.getElementById("calculation")
 let sumD6 = 0 
 let sumD4 = 0
 let sum = Array()
 let i = 0
 sum = []
+let calculation = 0
 window.onload = Clear()
     function Rolld20(){
         let d20 = Math.floor(Math.random()* 20) + 1
@@ -37,46 +39,61 @@ window.onload = Clear()
         
         
     }
+    function Acrescing(){
+        if(sumD4 != 0 && sumD6 != 0){
+            calculation += '+'
+        }    
+    }
 
-    function Roll(){
-        sum = []
-        i= 0
+    function Rolling(){
         if(sumD6 != 0){ //se tiver d6 faça
             while (i < sumD6){ //enquanto i menor que totalD6
                 d6 = (Math.floor(Math.random()* 6) + 1)
                 sum.push(d6)
                 i++
             }
+            console.log(i)
+            calculation += i + 'd6 '
         }
 
         i=0
         if(sumD4 != 0){
+            Acrescing()
             while (i < sumD4){
+                
                 d4 = (Math.floor(Math.random()* 4) + 1)
                 sum.push(d4)
                 i++
             }
+            calculation += i + 'd4 '
         }
+    }
 
-        sumResult.innerHTML = ''
+
+    function Roll(){
+        calculation = ''
+        sum = []
+        Rolling()
+        cal.innerHTML = calculation
         
+        sumResult.innerHTML = ''
+        sumResult.innerHTML += sum.sort(function(a, b){return a - b})
+         
         let res = 0
-        console.log('novo teste')
         for (let i = 0; i < sum.length; i++){
-            
-                sumResult.innerHTML += ' + ' + sum[i] 
-                
-           
             res += sum[i];
         }
-       
-        
         contentBox.innerHTML = res
     }
+
+
+
     function Clear(){
         sumD6 = 0
         sumD4 = 0
+        
         sumResult.innerHTM = 'null'
+        document.getElementById("calculation").innerHTML = ''
         document.getElementById("border-d6").style.display="none"
         document.getElementById("counter-d6").style.display="none"
         document.getElementById("border-d4").style.display="none"

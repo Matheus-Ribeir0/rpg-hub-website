@@ -14,9 +14,7 @@ body {
 }
 
 #container{
-    
     position: relative;
-    border: 1px solid red;
     width: 30em;
     height: 30em;
     margin: 0 auto;
@@ -25,7 +23,7 @@ body {
     display: block;
     justify-content: center;
 }
-#sum {
+.counter-dice {
     background-color: var(--second-background);
     height: 120;
     margin: 130px auto;
@@ -34,6 +32,10 @@ body {
     border-radius: 10px;
     display: table;
 }
+#calculation {
+    margin-top: 20em;
+}
+
 #content-box{
     position: absolute;
     margin-left: auto;
@@ -42,8 +44,9 @@ body {
     right: 0;
     bottom: 150px;
     text-align: center;
-    font-size: 120px;
+    font-size: 200px;
     color: var(--main-green);
+    
 }
 
 #buttons{
@@ -58,6 +61,23 @@ button {
     height: 30px;
     border-radius: 10px;
     margin: 10px 20px;
+    transition:all 0.2s ease-in-out;
+    outline: none;
+    border: none;
+}
+#roll-dices:hover {
+    box-shadow: #34B27B;
+    transition:all 0.2s ease-in-out;
+    filter:drop-shadow(0.5px 0.5px 10px var(--main-green));
+    outline: none;
+    border: none;
+}
+#roll-dices:focus {
+    box-shadow: #34B27B;
+    transition:all 0.2s ease-in-out;
+    filter:drop-shadow(0.5px 0.5px 10px var(--main-green));
+    outline: none;
+    border: none;
 }
 /* barra de dados */
 #dices-bar {
