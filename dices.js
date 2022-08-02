@@ -12,15 +12,17 @@ let diceArray = [
     20,
     100
 ]
+let diceQnt = 2
+let diceType
 
 //--------------
+// GERAR OS DADOS PARA VISUALIZAÇÃO
 
-
-function sortResult(diceType){
-    return Math.floor(Math.random()* diceType) + 1
+function sortResult(diceType){ //sortear dado
+    return Math.floor(Math.random()* diceType) + 1 
 }
 
-function generateDices(diceArray){
+function generateDices(diceArray){ //gerar os dados na hotbar
     let dicesComponent = ""
     for (let index = 0; index < diceArray.length; index++) {
 
@@ -29,7 +31,7 @@ function generateDices(diceArray){
             <p class="counter d${diceArray[index]}" id="counter-d${diceArray[index]}"></p>
         </div>
         <button class="roll-button d${diceArray[index]}" onclick="showDicesResult(${diceArray[index]})">
-            <img src="images/d.png" alt="d${diceArray[index]}">
+           <p>${diceArray[index]}</p>
         </button>`
     }
     return dicesComponent
@@ -40,37 +42,61 @@ function showDices(htmlComponent){
     dicesBarComponent.innerHTML = htmlComponent
 }
 
+showDices(generateDices(diceArray))
+// REALIZAR AS ROLAGENS
+
 function rollDice(dice, diceQnt){
     var dicesSum = 0
     var value
+    let diceType = dice
     diceAmount = []
     for (let index = 0; index < diceQnt; index++) {
         value = sortResult(dice)
         diceAmount.push(value)
         dicesSum += value
     }
-    console.log(dicesSum)
+ 
     return dicesSum
-
 }
 
 
-function showDicesResult(diceResult){
-    var value = rollDice(diceResult,1)
+function showDicesResult(diceType){
+    
+    var value = rollDice(diceType, diceQnt)
     
     putResultOnScreen(value)
     showAllDices()
+    showCount(diceQnt, diceType)
 }
+
+// MOSTRAR RESULTADO DE TODAS ROLAGENS
 function showAllDices(){
     sumResult.innerHTML = ''
     sumResult.innerHTML += diceAmount.sort(function(a, b){return a - b})
 }
+
 function putResultOnScreen(diceResult){
     var contentBox = document.getElementById("content-box")
     contentBox.innerHTML = diceResult
 }
 
-showDices(generateDices(diceArray))
+
+//---------------------------------
+
+function showCount(diceQnt,diceType){
+    cal.innerHTML =  diceQnt + 'd' +  diceType
+    console.log(cal)
+}
+
+
+
+
+
+
+
+
+
+
 
 
 //---------------------------------
