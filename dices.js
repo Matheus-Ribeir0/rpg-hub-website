@@ -2,18 +2,13 @@ let contentBox = document.getElementById("content-box")
 let sumResult = document.getElementById("sum")
 let cal = document.getElementById("calculation")
 let diceAmount = []
-let diceArray = [
-    2,
-    4,
-    6,
-    8,
-    10,
-    12,
-    20,
-    100
-]
-let diceQnt = 2
-let diceType
+let diceArray = [2, 4, 6, 8, 10, 12, 20, 100]
+let counterNum = document.getElementById("show-qtd")
+counterNum.value = 1
+let diceQnt = 1
+let dicesSum = 0
+let dicesPlayed = [0,0,0,0,0,0,0,0]
+
 
 //--------------
 // GERAR OS DADOS PARA VISUALIZAÇÃO
@@ -47,7 +42,7 @@ showDices(generateDices(diceArray))
 
 function rollDice(dice, diceQnt){
     var dicesSum = 0
-    var value
+    var value 
     let diceType = dice
     diceAmount = []
     for (let index = 0; index < diceQnt; index++) {
@@ -61,12 +56,12 @@ function rollDice(dice, diceQnt){
 
 
 function showDicesResult(diceType){
-    
-    var value = rollDice(diceType, diceQnt)
+    var value = rollDice(diceType,counterNum.value )
     
     putResultOnScreen(value)
     showAllDices()
     showCount(diceQnt, diceType)
+
 }
 
 // MOSTRAR RESULTADO DE TODAS ROLAGENS
@@ -83,16 +78,34 @@ function putResultOnScreen(diceResult){
 
 //---------------------------------
 
+
 function showCount(diceQnt,diceType){
-    cal.innerHTML =  diceQnt + 'd' +  diceType
-    console.log(cal)
+    
+    cal.innerHTML = counterNum.value + 'd' + diceType
+    
+
 }
 
 
+function verifyDices(){
+    if (counterNum.value < 1){
+        counterNum.value = 1
+    }
+    if (counterNum.value > 999){
+        counterNum.value = 999
+    }
+}
+function sumDices(){
+    parseInt(counterNum.value)
+    counterNum.value ++
+    verifyDices()
+}
 
-
-
-
+function subDices(){
+    parseInt(counterNum.value)
+    counterNum.value --
+    verifyDices()
+}
 
 
 
@@ -155,3 +168,4 @@ function showCount(diceQnt,diceType){
         document.getElementById("border-d2").style.display="none"
         document.getElementById("counter-d2").style.display="none"
     }
+

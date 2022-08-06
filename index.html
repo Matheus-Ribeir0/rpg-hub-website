@@ -18,8 +18,13 @@
         
 
     <div id="buttons">
-        <button id="roll-dices" onclick="Roll()">Roll</button>
-        <button onclick="Clear()">clear</button>
+        <div id="div-counter">
+            <button id="sub-button" onclick="subDices()">-</button>
+            <input id="show-qtd" type="text" maxlength="3" oninput="verifyDices()"/>
+            <button id="sum-button" onclick="sumDices()">+</button>  
+        
+        </div>
+        <button id="clear-button" onclick="Clear()">clear</button>
     </div>
     <div id="dices-bar">
         

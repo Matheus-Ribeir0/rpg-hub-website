@@ -31,6 +31,7 @@ body {
     text-align: center;
     border-radius: 10px;
     display: table;
+    
 }
 #calculation {
     margin-top: 20em;
@@ -54,16 +55,73 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 12em;
+    padding: 10px;
+    
+    
 }
 button {
     background-color: var(--main-green);
     width: 100px;
     height: 30px;
     border-radius: 10px;
-    margin: 10px 20px;
+    
     transition:all 0.2s ease-in-out;
     outline: none;
     border: none;
+}
+
+#clear-button{
+    margin: 0 50px;
+}
+#sum-button, #sub-button {
+    width: 30px;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    padding: 0;
+}
+#sum-button{
+    margin-left: 8px;
+    
+}
+#sub-button{
+    margin-right: 8px;
+}
+
+#show-qtd{
+    background: none;
+    color: #34B27B;
+    text-align: center;
+    outline: none;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    border-style: none;
+    margin: 0px 0px;
+    text-transform: capitalize;
+}
+#div-counter{
+    background-color: #2E2E2E;
+    height: 31.5px;
+    width: 10;
+    padding: 0;
+    margin: 0 50px;
+    border-radius: 30px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#sum-dices{
+    display: inline;
+    height: 31px;
+    border: 1px solid red;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
 }
 #roll-dices:hover {
     box-shadow: #34B27B;
@@ -79,6 +137,8 @@ button {
     outline: none;
     border: none;
 }
+
+
 /* barra de dados */
 #dices-bar {
     margin: 0 auto;
