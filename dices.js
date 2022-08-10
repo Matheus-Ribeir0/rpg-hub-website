@@ -151,13 +151,11 @@ function subBonus(){
 }
 
 
-
+var time
 
 
 function animateResult(){
-    var x = 10
-    var y = 20
-    console.log(x)
+    animateE()
     contentBox.classList.add('active')
     setTimeout(animateE,2000)
     

@@ -16,22 +16,22 @@
         <p class="counter-dice" id="calculation"></p>
     </div>
         
-
-    <section id="buttons">
-        <div id="div-counter">
-            <button class="sub-button" onclick="subDices()">-</button>
-            <input id="show-qtd" type="text" maxlength="3"  onblur="verifyNumber()" onfocus="selectCounterDices()"/>
-            <button class="sum-button" onclick="sumDices()">+</button>  
+    <footer>
+        <section id="buttons">
+            <div id="div-counter">
+                <button class="sub-button" onclick="subDices()">-</button>
+                <input id="show-qtd" type="text" maxlength="2"  onblur="verifyNumber()" onfocus="selectCounterDices()"/>
+                <button class="sum-button" onclick="sumDices()">+</button>  
+            </div>
+            <div id="div-bonus">
+                <button class="sub-button" onclick="subBonus()">-</button>
+                <input id="bonus-qtd" type="text" maxlength="2"  onblur="verifyBonus(),clearCounterDiceStrings()" onfocus="selectCounterDices()"/>
+                <button class="sum-button" onclick="sumBonus()">+</button>
+            </div>
+        </section>
+        <div id="dices-bar">
+            
         </div>
-        <div id="div-bonus">
-            <button class="sub-button" onclick="subBonus()">-</button>
-            <input id="bonus-qtd" type="text" maxlength="3"  onblur="verifyBonus(),clearCounterDiceStrings()" onfocus="selectCounterDices()"/>
-            <button class="sum-button" onclick="sumBonus()">+</button>
-        </div>
-    </section>
-    <div id="dices-bar">
-        
-    </div>
-    
+    </footer>
 </body>
 </html>

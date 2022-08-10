@@ -15,37 +15,30 @@ body {
 
 #container{
     position: relative;
-    width: 30em;
-    height: 30em;
+    width: 40%;
     margin: 0 auto;
-    margin-top: 8em;
+    margin-top: 0;
     color: aliceblue;
     display: block;
     justify-content: center;
+    text-align: center;
 }
 .counter-dice {
     background-color: var(--second-background);
-    height: 120;
-    margin: 130px auto;
+    margin: 32px auto;
     padding: 10px;
     text-align: center;
     border-radius: 10px;
-    display: table;
-    
-}
-#calculation {
-    margin-top: 20em;
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #content-box{
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    bottom: 150px;
+    margin: 0 auto ; 
     text-align: center;
-    font-size: 200px;
+    font-size: 7em;
     color: var(--main-green);
 }
 #content-box.active{
@@ -65,18 +58,16 @@ body {
 #buttons{
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    margin-top: 12em;
+    margin-top: 4em;
     padding: 10px;
-    
-    
 }
 button {
     background-color: var(--main-green);
     width: 100px;
     height: 30px;
     border-radius: 10px;
-    
     transition:all 0.2s ease-in-out;
     outline: none;
     border: none;
@@ -91,6 +82,7 @@ button {
     color: white;
     font-size: 20px;
     padding: 0;
+    cursor: pointer;
 }
 
 .sum-button{
@@ -119,6 +111,7 @@ button {
     width: 10;
     padding: 0;
     margin: 0 50px;
+    margin-bottom: 10px;
     border-radius: 30px;
 }
 
@@ -156,14 +149,40 @@ input[type=number] {
 #dices-bar {
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     padding: 15px 0;
     justify-content: center;
-    width: 60%;
-    height: 100px;
+    width: 40%;
     background-color: var(--second-background);
     border-radius: 30px;
 }
+@media (min-width: 890px){
+    footer{
+        margin-top: 400px;
+    }
+    #calculation{
+        bottom: 0;
+    }
+    #dices-bar{
+        width: 780px;
+    }
+}
+@media (max-width: 700px){
+    footer{
+        position: fixed;
+        bottom: 0;
+    }
 
+    #dices-bar{
+        width: 100%;
+        border-radius: 0;
+    }
+}
+@media (max-width: 300px){
+    #calculation{
+        display: none;
+    }
+}
 .roll-button {
     width: 70px;
     height: 70px;
@@ -177,7 +196,7 @@ input[type=number] {
     width: 60px;
     height: 60px;
     transition: all 0.2s;
-    
+    cursor: pointer;
 }
 .dices:hover{
 width: 70px;
