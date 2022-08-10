@@ -73,22 +73,22 @@ button {
 #clear-button{
     margin: 0 50px;
 }
-#sum-button, #sub-button {
+.sum-button, .sub-button {
     width: 30px;
     border-radius: 50%;
     color: white;
     font-size: 20px;
     padding: 0;
 }
-#sum-button{
+.sum-button{
     margin-left: 8px;
     
 }
-#sub-button{
+.sub-button{
     margin-right: 8px;
 }
 
-#show-qtd{
+#show-qtd, #bonus-qtd{
     background: none;
     color: #34B27B;
     text-align: center;
@@ -100,7 +100,7 @@ button {
     margin: 0px 0px;
     text-transform: capitalize;
 }
-#div-counter{
+#div-counter,#div-bonus{
     background-color: #2E2E2E;
     height: 31.5px;
     width: 10;

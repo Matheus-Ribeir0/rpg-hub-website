@@ -4,8 +4,9 @@ let cal = document.getElementById("calculation")
 let diceAmount = []
 let diceArray = [2, 4, 6, 8, 10, 12, 20, 100]
 let counterNum = document.getElementById("show-qtd")
+let counterBonus = document.getElementById("bonus-qtd")
 counterNum.value = 1
-let diceQnt = 1
+counterBonus.value = 0
 let dicesSum = 0
 let dicesPlayed = [0,0,0,0,0,0,0,0]
 
@@ -50,18 +51,19 @@ function rollDice(dice, diceQnt){
         diceAmount.push(value)
         dicesSum += value
     }
- 
+    verifyNumber()
+    dicesSum = dicesSum + parseInt(counterBonus.value)
     return dicesSum
 }
 
 
 function showDicesResult(diceType){
+    clearCounterDiceStrings()
     var value = rollDice(diceType,counterNum.value )
     
     putResultOnScreen(value)
     showAllDices()
-    showCount(diceQnt, diceType)
-
+    showCount(diceType)
 }
 
 // MOSTRAR RESULTADO DE TODAS ROLAGENS
@@ -77,35 +79,79 @@ function putResultOnScreen(diceResult){
 
 
 //---------------------------------
+//fazer funçao para retornar counterBonus ja em int
 
-
-function showCount(diceQnt,diceType){
+function showCount(diceType){
+    if (counterBonus.value != 0){
+        cal.innerHTML = counterNum.value + diceType +  counterBonus.value 
+    }else{
+        cal.innerHTML = counterNum.value + diceType
+    }
     
-    cal.innerHTML = counterNum.value + 'd' + diceType
-    
-
 }
 
+function selectCounterDices(){
+    counterNum.value = counterNum.value.slice(0,counterNum.value.length-1)
+}
+function addSuffixCounterDices(){
+    counterNum.value += "d" 
+}
+function clearCounterDiceStrings(){
+    counterNum.value = counterNum.value.replace(/[^0-9\.]+/g, "");
+}
 
-function verifyDices(){
+function verifyNumber(){
+    
+    if(/[a-zA-Z]/.test(counterNum.value)) {
+        counterNum.value = 1    
+    }
     if (counterNum.value < 1){
         counterNum.value = 1
     }
     if (counterNum.value > 999){
         counterNum.value = 999
     }
+    addSuffixCounterDices()
 }
 function sumDices(){
+    clearCounterDiceStrings()
     parseInt(counterNum.value)
     counterNum.value ++
-    verifyDices()
+    verifyNumber()
 }
 
 function subDices(){
+    clearCounterDiceStrings()
     parseInt(counterNum.value)
     counterNum.value --
-    verifyDices()
+    verifyNumber()
 }
+
+//------------------------------------------------
+
+function verifyBonus(){
+    if (counterBonus.value >= 0){
+        
+        x = counterBonus.value
+        counterBonus.value = ''
+        counterBonus.value += '+' + x
+    }
+}
+function sumBonus(){
+    parseInt(counterBonus.value)
+    counterBonus.value ++
+    console.log(counterBonus.value)
+    verifyBonus()
+}
+
+function subBonus(){
+    parseInt(counterBonus.value)
+    counterBonus.value --
+    verifyBonus()
+}
+
+
+
 
 
 

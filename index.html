@@ -17,15 +17,18 @@
     </div>
         
 
-    <div id="buttons">
+    <section id="buttons">
         <div id="div-counter">
-            <button id="sub-button" onclick="subDices()">-</button>
-            <input id="show-qtd" type="text" maxlength="3" oninput="verifyDices()"/>
-            <button id="sum-button" onclick="sumDices()">+</button>  
-        
+            <button class="sub-button" onclick="subDices()">-</button>
+            <input id="show-qtd" type="text" maxlength="3"  onblur="verifyNumber()" onfocus="selectCounterDices()"/>
+            <button class="sum-button" onclick="sumDices()">+</button>  
         </div>
-        <button id="clear-button" onclick="Clear()">clear</button>
-    </div>
+        <div id="div-bonus">
+            <button class="sub-button" onclick="subBonus()">-</button>
+            <input id="bonus-qtd" type="text" maxlength="3"  onblur="verifyNumber(),clearCounterDiceStrings()" onfocus="selectCounterDices()"/>
+            <button class="sum-button" onclick="sumBonus()">+</button>
+        </div>
+    </section>
     <div id="dices-bar">
         
     </div>
