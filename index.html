@@ -12,7 +12,7 @@
 <body>
     <div id="container">
         <p class="counter-dice" id="sum"></p>
-        <h1 id="content-box"></h1>
+        <h1 id="content-box" ></h1>
         <p class="counter-dice" id="calculation"></p>
     </div>
         
@@ -25,7 +25,7 @@
         </div>
         <div id="div-bonus">
             <button class="sub-button" onclick="subBonus()">-</button>
-            <input id="bonus-qtd" type="text" maxlength="3"  onblur="verifyNumber(),clearCounterDiceStrings()" onfocus="selectCounterDices()"/>
+            <input id="bonus-qtd" type="text" maxlength="3"  onblur="verifyBonus(),clearCounterDiceStrings()" onfocus="selectCounterDices()"/>
             <button class="sum-button" onclick="sumBonus()">+</button>
         </div>
     </section>

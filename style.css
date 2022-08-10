@@ -47,9 +47,21 @@ body {
     text-align: center;
     font-size: 200px;
     color: var(--main-green);
-    
 }
-
+#content-box.active{
+    animation: roll 2s;
+}
+@keyframes roll {
+    0%{
+        
+    }
+    50%{
+        filter: drop-shadow(0px 0px 5px var(--main-green));
+    }
+    100%{
+        filter: none;
+    }
+}
 #buttons{
     margin: 0 auto;
     display: flex;
@@ -80,6 +92,7 @@ button {
     font-size: 20px;
     padding: 0;
 }
+
 .sum-button{
     margin-left: 8px;
     
@@ -90,7 +103,7 @@ button {
 
 #show-qtd, #bonus-qtd{
     background: none;
-    color: #34B27B;
+    color: white;
     text-align: center;
     outline: none;
     border-radius: 50%;
@@ -152,16 +165,28 @@ input[type=number] {
 }
 
 .roll-button {
-    width: 65px;
-    height: 65px;
+    width: 70px;
+    height: 70px;
     margin: 0 20px;
     background-color: transparent;
     border: none;
 }
-
+.dices{
+    position: relative;
+    top: 3px;
+    width: 60px;
+    height: 60px;
+    transition: all 0.2s;
+    
+}
+.dices:hover{
+width: 70px;
+height: 70px;
+filter: drop-shadow(0px 0px 5px var(--main-green));
+}
 /* contador de dados */
 .counter {
-    color: var(--main-green);
+    color: var(---green);
 }
 .border {  
     display: none;
@@ -186,3 +211,6 @@ input[type=number] {
 #border-d2 {
     margin-left: 526px;
 }
+
+
+

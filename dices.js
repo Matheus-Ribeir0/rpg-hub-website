@@ -2,7 +2,7 @@ let contentBox = document.getElementById("content-box")
 let sumResult = document.getElementById("sum")
 let cal = document.getElementById("calculation")
 let diceAmount = []
-let diceArray = [2, 4, 6, 8, 10, 12, 20, 100]
+let diceArray = [4, 6, 8, 10, 12, 20, 100]
 let counterNum = document.getElementById("show-qtd")
 let counterBonus = document.getElementById("bonus-qtd")
 counterNum.value = 1
@@ -23,11 +23,8 @@ function generateDices(diceArray){ //gerar os dados na hotbar
     for (let index = 0; index < diceArray.length; index++) {
 
         dicesComponent +=
-        `<div class="border d${diceArray[index]}" id="border-d${diceArray[index]}">
-            <p class="counter d${diceArray[index]}" id="counter-d${diceArray[index]}"></p>
-        </div>
-        <button class="roll-button d${diceArray[index]}" onclick="showDicesResult(${diceArray[index]})">
-           <p>${diceArray[index]}</p>
+        `<button class="roll-button d${diceArray[index]}" onclick="showDicesResult(${diceArray[index]})" data-role="hint" data-hint-text="button"/>
+        <img class="dices" src="images/d${diceArray[index]}.png"/>
         </button>`
     }
     return dicesComponent
@@ -59,7 +56,8 @@ function rollDice(dice, diceQnt){
 
 function showDicesResult(diceType){
     clearCounterDiceStrings()
-    var value = rollDice(diceType,counterNum.value )
+    animateResult()
+    var value = rollDice(diceType,counterNum.value)
     
     putResultOnScreen(value)
     showAllDices()
@@ -131,10 +129,12 @@ function subDices(){
 
 function verifyBonus(){
     if (counterBonus.value >= 0){
-        
         x = counterBonus.value
         counterBonus.value = ''
         counterBonus.value += '+' + x
+    }
+    if(/[a-zA-Z]/.test(counterBonus.value)) {
+        counterBonus.value = '+' + 1    
     }
 }
 function sumBonus(){
@@ -154,64 +154,16 @@ function subBonus(){
 
 
 
+function animateResult(){
+    var x = 10
+    var y = 20
+    console.log(x)
+    contentBox.classList.add('active')
+    setTimeout(animateE,2000)
+    
+}
+function animateE(){
+    contentBox.classList.remove('active')
+}
 
-
-
-
-//---------------------------------
-    function Acrescing(){
-        if(diceAmount > 1){
-            
-        }    
-    }
-
-    function Rolling(){
-        i=0
-        if(sumD6 != 0){ //se tiver d6 faça
-            while (i < sumD6){ //enquanto i menor que totalD6
-                d6 = (Math.floor(Math.random()* 6) + 1)
-                sum.push(d6)
-                i++
-            }
-            console.log(i)
-            calculation += i + 'd6 '
-        }
-
-        i=0
-        if(sumD4 != 0){
-            Acrescing()
-            while (i < sumD4){
-                
-                d4 = (Math.floor(Math.random()* 4) + 1)
-                sum.push(d4)
-                i++
-            }
-            calculation += i + 'd4 '
-        }
-        i=0
-        if(sumD2 != 0){
-            Acrescing()
-            while (i < sumD2){
-                
-                d2 = (Math.floor(Math.random()* 2) + 1)
-                sum.push(d2)
-                i++
-            }
-            calculation += i + 'd2 '
-        }
-    }
-
-    function Clear(){
-        sumD6 = 0
-        sumD4 = 0
-        sumD2 = 0
-        sumResult.innerHTM = 'null'
-        
-        document.getElementById("border-d6").style.display="none"
-        document.getElementById("counter-d6").style.display="none"
-        document.getElementById("border-d4").style.display="none"
-        document.getElementById("counter-d4").style.display="none"
-        document.getElementById("border-d2").style.display="none"
-        document.getElementById("counter-d2").style.display="none"
-    }
 
