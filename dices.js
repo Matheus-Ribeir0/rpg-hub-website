@@ -1,10 +1,11 @@
-let contentBox = document.getElementById("content-box")
-let sumResult = document.getElementById("sum")
-let cal = document.getElementById("calculation")
+const contentBox = document.getElementById("content-box")
+const sumResult = document.getElementById("sum")
+const cal = document.getElementById("calculation")
+const counterNum = document.getElementById("show-qtd")
+const counterBonus = document.getElementById("bonus-qtd")
+
 let diceAmount = []
 let diceArray = [4, 6, 8, 10, 12, 20, 100]
-let counterNum = document.getElementById("show-qtd")
-let counterBonus = document.getElementById("bonus-qtd")
 counterNum.value = 1
 counterBonus.value = 0
 let dicesSum = 0
@@ -56,12 +57,13 @@ function rollDice(dice, diceQnt){
 
 function showDicesResult(diceType){
     clearCounterDiceStrings()
-    animateResult()
     var value = rollDice(diceType,counterNum.value)
-    
     putResultOnScreen(value)
     showAllDices()
     showCount(diceType)
+
+
+    AnimateResult()
 }
 
 // MOSTRAR RESULTADO DE TODAS ROLAGENS
@@ -140,7 +142,6 @@ function verifyBonus(){
 function sumBonus(){
     parseInt(counterBonus.value)
     counterBonus.value ++
-    console.log(counterBonus.value)
     verifyBonus()
 }
 
@@ -151,17 +152,12 @@ function subBonus(){
 }
 
 
-var time
+function AnimateResult(){
+    contentBox.classList.toggle("started")
 
-
-function animateResult(){
-    animateE()
-    contentBox.classList.add('active')
-    setTimeout(animateE,2000)
-    
-}
-function animateE(){
-    contentBox.classList.remove('active')
+    contentBox.onanimationend = () => {
+        contentBox.classList.remove("started")
+    }
 }
 
 
